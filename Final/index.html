@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="done.css">
+    <script src = "js/popper.js"></script>
+    <script src = "js/jquery-3.2.1.slim.js"></script>
+    <script src = "js/bootstrap.js"></script>
+    <script src = "todolist.js"></script>
+</head>
+
+<body>
+    <h1 class = "text-center my-3">ToDo List</h1>
+    <div class = "container">
+        <div class = "row">
+            <input type="text"
+            placeholder="Enter Your Task"
+            class = "form-control col mx-2"
+            id = "text"
+            >
+            <button class = "btn btn-success col-3" id = "addBtn">
+            Add Task
+            </button>
+        </div>
+        <div class = "row">
+            <ul class = "list-group mx-2 col-6 my-3" id = "taskList">
+            </ul>
+        </div>
+    </div>    
+</body>
+</html>
