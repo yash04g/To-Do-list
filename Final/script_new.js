@@ -6,44 +6,49 @@ window.onload = function(){
     function addTask(){
         let newtaskvalue = newtask.value
         let newtasklistitem = document.createElement('li')
-        newtasklistitem.id = "task_data"
-        newtasklistitem.className = "list-group-item my-2"
+        newtasklistitem.id = 'task_data'
+        newtasklistitem.className = 'list-group-item my-2'
         tasklist.appendChild(newtasklistitem)
         //Span
         let spanelem = document.createElement('span')
-        spanelem.className = "task mx-4"
+        spanelem.className = 'task mx-4'
         spanelem.innerText = newtaskvalue
         spanelem.id = 'added_task'
         newtasklistitem.appendChild(spanelem)
-        newtask.value = ""
+        newtask.value = ''
         // DONE BUTTON
         let newbutton1 = document.createElement('button')
-        newbutton1.id = "button1"
+        newbutton1.id = 'button1'
         newbutton1.innerText = 'DONE'
-        newbutton1.className = "btn btn-success mx-2"
+        newbutton1.className = 'btn btn-success mx-2'
         newtasklistitem.appendChild(newbutton1)
         // DELETE BUTTON
         let newbutton2 = document.createElement('button')
-        newbutton2.id = "button2"
+        newbutton2.id = 'button2'
         newbutton2.innerText = 'DELETE'
-        newbutton2.className = "btn btn-danger mx-1"
-        newtasklistitem.appendChild(newbutton2)
+        newbutton2.className = 'btn btn-danger mx-1'
+        newtasklistitem.appendChild(newbutton2)    
         //Line-Through
         let donebtn = document.getElementById('button1')
-        let deletebtn = document.getElementById('button2')
-        donebtn.onclick = function (e){
-            if (e.target.className.indexOf('disabled' == -1)) {
-                e.target.className = "task mx-4 disabled"
+        donebtn.onclick = function () {
+            let line = document.getElementById('added_task')
+            if (line.className.indexOf('done' === -1)) {
+                line.className = 'task mx-4 done'
+                donebtn.innerText = 'NOT DONE'
             }
             else {
-                e.target.className = "task mx-4"
+                line.className = 'task mx-4'
+                donebtn.innerText = 'DONE'
             }
         }
+
         //Deleting an element
-        deletebtn.onclick = function (){
+        let deletebtn = document.getElementById('button2')
+        deletebtn.onclick = function () {
             let elem = document.getElementById('task_data')
             elem.parentNode.removeChild(elem)
         }
+
     }
     addbtn.onclick = function(){
         addTask();
@@ -53,6 +58,22 @@ window.onload = function(){
             addTask();
         }
     })
-    
+    // //Line-Through
+    // let donebtn = document.getElementById('button1')
+    // donebtn.onclick = function () {
+    //     let line = document.getElementById('added_task')
+    //     if (line.className.indexOf('done' === -1)) {
+    //         line.className = 'task mx-4 done'
+    //     }
+    //     else {
+    //         line.className = 'task mx-4'
+    //     }
+    // }
+    // //Deleting an element
+    // let deletebtn = document.getElementById('button2')
+    // deletebtn.onclick = function (){
+    //     let elem = document.getElementById('task_data')
+    //     elem.parentNode.removeChild(elem)
+    // }    
 }
 console.log("ToDoList Ends")
