@@ -31,13 +31,6 @@ window.onload = function () {
       liBtnDelete.innerText = "DELETE"
       liBtnDelete.className = "btn btn-danger col-2 mx-2"
 
-      let liBtnUp = document.createElement('button')
-      liBtnUp.innerText = "⬆️"
-      liBtnUp.className = "btn btn-warning col-1 mx-2"
-      let liBtnDown = document.createElement('button')
-      liBtnDown.innerText = "⬇️"
-      liBtnDown.className = "btn btn-warning col-1 mx-2"
-
       liBtnDone.onclick = function () {
         task.done = !task.done
         refreshList()
