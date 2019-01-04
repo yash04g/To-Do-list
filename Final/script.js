@@ -23,7 +23,23 @@ $(() => {
                                     .attr('class', "col py-1")
                                     .text(task.name)
                             )
-                            
+                            .append(
+                                $('<button>')
+                                    .text('⬆️')
+                                    .attr('class', "btn btn-info col-1 mx-1")
+                                    .click(function(e){
+                                        $(e.target.previousSiblingElement).insertBefore($(e.target.previousSiblingElement).prev())
+                                    })
+                            )
+                            .append(
+                                $('<button>')
+                                    .text('⬇️')
+                                    .attr('class', "btn btn-info col-1 mx-1")
+                                    .click(function (e) {
+                                        console.log(e)
+                                        // $(e.target.previousSiblingElement).After($(e.target.previousSiblingElement).next())
+                                    })
+                            )
                             .append(
                                 $('<button>')
                                     .text(task.done ? "❌" : "✔️")
