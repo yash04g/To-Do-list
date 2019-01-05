@@ -51,12 +51,7 @@ $(() => {
                                         tasks[i] = tasks[i + 1]
                                         tasks[i + 1] = temp2
                                         refreshList()
-                                    })
-                                    // .click(function (e) {
-                                    //     $('tasks[i]').after($('tasks[i+1]'))
-                                    //     // console.log(e)
-                                    //     // $(e.target.previousSiblingElement).After($(e.target.previousSiblingElement).next())
-                                    // })
+                                    })  
                             )
                             .append(
                                 $('<button>')
@@ -79,21 +74,6 @@ $(() => {
                             )
                     )
             )
-            // function up() {
-            //     if(i==0){
-            //         //nothing
-            //     }
-            //     else{
-            //     let temp = tasks[i]
-            //     tasks[i] = tasks[i-1]
-            //     tasks[i-1] = temp
-            //     }
-            // }
-            // function down() {
-            //     let temp = tasks[i]
-            //     tasks[i] = tasks[i + 1]
-            //     tasks[i+1] = temp
-            // }
         }
     }
     refreshList()
