@@ -30,16 +30,13 @@ $(() => {
                                     .attr('id','upBtn')
                                     .click(() => {
                                             // console.log("Hey")
-                                            let temp1 = tasks[i]
-                                            tasks[i] = tasks[i - 1]
-                                            tasks[i - 1] = temp1
+                                            // let temp1 = tasks[i]
+                                            // tasks[i] = tasks[i - 1]
+                                            // tasks[i - 1] = temp1
+                                            tasks.splice(i-1,2,tasks[i],tasks[i-1])
                                             refreshList()
                                             // console.log(tasks)
                                     })
-
-                                    // .click(function(){
-                                    //     $('tasks[i]').before($('task[i-1]'))
-                                    // })
                             )
                             .append(
                                 $('<button>')
@@ -47,9 +44,10 @@ $(() => {
                                     .attr('class', "btn btn-info col-sm-1 mx-1 my-1")
                                     .attr('id','downBtn')
                                     .click(() =>{
-                                        let temp2 = tasks[i]
-                                        tasks[i] = tasks[i + 1]
-                                        tasks[i + 1] = temp2
+//                                         let temp2 = tasks[i]
+//                                         tasks[i] = tasks[i + 1]
+//                                         tasks[i + 1] = temp2
+                                        tasks.splice(i,2,tasks[i+1], tasks[i])
                                         refreshList()
                                     })  
                             )
