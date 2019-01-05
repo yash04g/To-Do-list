@@ -26,19 +26,37 @@ $(() => {
                             .append(
                                 $('<button>')
                                     .text('⬆️')
-                                    .attr('class', "btn btn-info col-1 mx-1")
-                                    .click(function(e){
-                                        $(e.target.previousSiblingElement).insertBefore($(e.target.previousSiblingElement).prev())
+                                    .attr('class', "btn btn-info col-sm-1 mx-1 my-1")
+                                    .attr('id','upBtn')
+                                    .click(() => {
+                                            // console.log("Hey")
+                                            let temp1 = tasks[i]
+                                            tasks[i] = tasks[i - 1]
+                                            tasks[i - 1] = temp1
+                                            refreshList()
+                                            // console.log(tasks)
                                     })
+
+                                    // .click(function(){
+                                    //     $('tasks[i]').before($('task[i-1]'))
+                                    // })
                             )
                             .append(
                                 $('<button>')
                                     .text('⬇️')
-                                    .attr('class', "btn btn-info col-1 mx-1")
-                                    .click(function (e) {
-                                        console.log(e)
-                                        // $(e.target.previousSiblingElement).After($(e.target.previousSiblingElement).next())
+                                    .attr('class', "btn btn-info col-sm-1 mx-1 my-1")
+                                    .attr('id','downBtn')
+                                    .click(() =>{
+                                        let temp2 = tasks[i]
+                                        tasks[i] = tasks[i + 1]
+                                        tasks[i + 1] = temp2
+                                        refreshList()
                                     })
+                                    // .click(function (e) {
+                                    //     $('tasks[i]').after($('tasks[i+1]'))
+                                    //     // console.log(e)
+                                    //     // $(e.target.previousSiblingElement).After($(e.target.previousSiblingElement).next())
+                                    // })
                             )
                             .append(
                                 $('<button>')
@@ -61,10 +79,25 @@ $(() => {
                             )
                     )
             )
+            // function up() {
+            //     if(i==0){
+            //         //nothing
+            //     }
+            //     else{
+            //     let temp = tasks[i]
+            //     tasks[i] = tasks[i-1]
+            //     tasks[i-1] = temp
+            //     }
+            // }
+            // function down() {
+            //     let temp = tasks[i]
+            //     tasks[i] = tasks[i + 1]
+            //     tasks[i+1] = temp
+            // }
         }
     }
     refreshList()
-
+    
     function sortList() {
         tasks.sort(function (a, b) {
             return a.done - b.done
@@ -73,7 +106,7 @@ $(() => {
     }
 
     function clearList() {
-        tasks = tasks.filter(function (t) {
+        tasks = tasks.filter(function (t){
             return !t.done
         })
         refreshList()
@@ -89,7 +122,6 @@ $(() => {
         inpNewTask.val('')
         refreshList()
     }
-
     $('#btnAdd').click(function () {
         addTask()
     })
