@@ -33,9 +33,13 @@ $(() => {
                                             // let temp1 = tasks[i]
                                             // tasks[i] = tasks[i - 1]
                                             // tasks[i - 1] = temp1
+                                            if(i==0){
+                                                // nothing
+                                            }
+                                            else{
                                             tasks.splice(i-1,2,tasks[i],tasks[i-1])
                                             refreshList()
-                                            // console.log(tasks)
+                                            }
                                     })
                             )
                             .append(
